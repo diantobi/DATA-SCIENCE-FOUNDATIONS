@@ -1,0 +1,33 @@
+###IMPORT NUMPY
+import numpy as np
+print("NumPy imported successfully!")
+
+###NumPy Arrays
+numbers = np.array([10, 20, 30, 40, 50])
+print(numbers)
+print(numbers[0])
+print(numbers[3])
+print(numbers[-1])  # Accessing the last element
+print(numbers + 10)
+print(numbers * 2)
+print(numbers/10)
+
+###Mean, Sum, Median, Standard Deviation and Percentiles
+import numpy as np
+
+balances = np.array([12500, 8200, 15400, 9800, 21000])
+print(np.mean(balances))
+print(np.sum(balances))
+print(np.median(balances))
+print(np.std(balances))
+print(np.percentile(balances, 50))
+print(np.percentile(balances, 25))
+
+####Correlation and Covariance
+import numpy as np
+
+hours = np.array([1, 2, 3, 4, 5])
+scores = np.array([50, 60, 70, 80, 90])
+
+print(np.corrcoef(hours, scores))
+print(np.cov(hours, scores))

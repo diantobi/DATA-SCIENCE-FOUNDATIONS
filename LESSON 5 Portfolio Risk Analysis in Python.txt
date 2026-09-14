@@ -1,0 +1,69 @@
+###IMPORT PACKAGES AND DATA
+import pandas as pd
+import numpy as np
+
+data = {
+    "Stock_A": [100, 102, 101, 104, 103, 107, 109, 108, 111, 115],
+    "Stock_B": [50, 51, 52, 51, 53, 54, 55, 54, 56, 57],
+    "Stock_C": [200, 198, 201, 205, 203, 206, 208, 207, 210, 214]
+}
+prices = pd.DataFrame(data)
+print(prices)
+
+### CALCULATE DAILY RETURNS
+returns = prices.pct_change().dropna()
+print(returns)
+
+### CALCUATE VOLATILITY
+Volatility = returns.std()
+print(Volatility)
+
+#### Annual Volatility = Daily Volatility × sqr(252)
+annual_volatility = Volatility * np.sqrt(252)
+print(annual_volatility)
+
+### CALCULATE COVARIANCE MATRIX AND CORRELATION MATRIX
+cov_matrix = returns.cov()  
+print(cov_matrix)
+
+correlation = returns.corr()
+print(correlation)
+
+### CREATE PORTFOLIO WEIGHTS
+weights = np.array([0.40, 0.30, 0.30])
+print(weights.sum())
+
+### CALCULATE PORTFOLIO RETURN AND PORTFOLIO VOLATILITY
+portfolio_returns = returns @ weights ###@ Performs matrix multiplication
+print(portfolio_returns)
+
+portfolio_volatility = portfolio_returns.std()
+print(portfolio_volatility)
+
+annual_portfolio_volatility = portfolio_returns.std() * np.sqrt(252)
+print(annual_portfolio_volatility)
+
+#### HISTORICAL VALUE AT RISK (VaR)
+sorted_returns = portfolio_returns.sort_values()
+print(sorted_returns)
+
+var_95 = portfolio_returns.quantile(0.05)
+print(var_95)
+var_95_loss = -var_95
+print(var_95_loss)
+
+var_99 = abs(portfolio_returns.quantile(0.01))
+print(var_99)
+
+### WORST AND BEST DAYS
+worst_day = portfolio_returns.min()
+print(worst_day)
+
+worst_day_index = portfolio_returns.idxmin()
+print(worst_day_index)
+
+best_day = portfolio_returns.max()
+print(best_day)
+
+best_day_index = portfolio_returns.idxmax()
+print(best_day_index)

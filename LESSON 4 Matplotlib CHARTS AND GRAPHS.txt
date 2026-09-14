@@ -1,0 +1,114 @@
+###LOAD MATPLOTLIB
+import matplotlib.pyplot as plt
+print("Matplotlib imported successfully!")
+
+import pandas as pd
+print("Pandas imported successfully!")
+
+##LINE CHARTS AND TIME SERIES
+x = [1, 2, 3, 4, 5]
+y = [10, 15, 13, 20, 25]
+
+plt.plot(x, y)
+plt.xlabel("X axis")
+plt.ylabel("Y axis")
+plt.title("My Chart")
+plt.show()
+
+prices = [100, 102, 101, 105, 108, 107, 110]
+
+plt.plot(prices)
+plt.title("Stock Price")
+plt.xlabel("Date")
+plt.ylabel("Price")
+plt.show()
+
+dates = pd.date_range("2026-01-01", periods=7)
+
+prices = [100, 102, 101, 105, 108, 107, 110]
+
+plt.plot(dates, prices)
+plt.title("Stock Price")
+plt.xlabel("Date")
+plt.ylabel("Price")
+plt.show()
+
+###HISTOGRAMS
+returns = [
+    0.01,
+    -0.02,
+    0.015,
+    -0.01,
+    0.005,
+    -0.03,
+    0.02,
+    0.008,
+    -0.005,
+    0.012
+]
+
+plt.hist(returns)
+plt.title("Distribution of Daily Returns")
+plt.xlabel("Daily Return")
+plt.ylabel("Frequency")
+plt.show()
+
+plt.hist(returns, bins=20)
+plt.title("Distribution of Returns")
+plt.xlabel("Return")
+plt.ylabel("Frequency")
+plt.show()
+
+###SCATTER PLOTS
+stock_a = [1, 2, 3, 4, 5]
+stock_b = [2, 4, 3, 5, 7]
+
+plt.scatter(stock_a, stock_b)
+plt.xlabel("Stock A Return")
+plt.ylabel("Stock B Return")
+plt.title("Stock A vs Stock B")
+plt.show()
+
+###TIMESERIES CHARTS
+data = {
+    "Date": pd.date_range("2026-01-01", periods=5),
+    "Price": [100, 102, 101, 105, 108]
+}
+
+df = pd.DataFrame(data)
+print(df)
+
+plt.plot(df["Date"], df["Price"])
+plt.title("Stock Price Over Time")
+plt.xlabel("Date")
+plt.ylabel("Price")
+plt.show()
+
+###Financial Example: Stock Returns
+prices = [100, 102, 101, 104, 103, 107, 109, 108, 111, 115]
+
+df = pd.DataFrame({
+    "Price": prices
+})
+
+print(df)
+df["Return"] = df["Price"].pct_change()
+print(df)
+
+plt.plot(df["Price"])
+plt.title("Stock Price")
+plt.xlabel("Trading Day")
+plt.ylabel("Price")
+plt.show()
+
+plt.plot(df["Return"])
+plt.title("Daily Stock Returns")
+plt.xlabel("Trading Day")
+plt.ylabel("Return")
+plt.show()
+
+plt.hist(df["Return"].dropna(), bins=5)
+plt.title("Distribution of Daily Returns")
+plt.xlabel("Daily Return")
+plt.ylabel("Frequency")
+plt.show()

@@ -1,0 +1,58 @@
+###PANDAS
+
+import pandas as pd
+print("Pandas imported successfully!")
+
+#Load data
+df = pd.read_csv("bank_accounts.csv")
+print(df)
+
+#Head, Tail, No of rows and columns, Inspect
+print(df.head())
+print(df.head(2))
+print(df.tail())
+print(df.tail(3))
+print(df.shape)
+print(df.columns)
+df.info()
+
+##Filtering and Selecting Data
+print(df["Balance"])
+print(df[df["Balance"] > 10000])
+print(df[df["Account_Type"] == "Savings"])
+print(df[
+    (df["Account_Type"] == "Savings") &
+    (df["Balance"] > 15000)
+])
+print(df[
+    (df["Account_Type"] == "Savings") |
+    (df["Balance"] > 15000)
+])
+
+###AVERAGES
+print(df["Balance"].mean())
+print(df["Balance"].median())
+print(df["Balance"].mode())
+print(df["Balance"].std())
+print(df["Balance"].var())
+print(df["Balance"].min())
+print(df["Balance"].max())
+print(df["Balance"].sum())
+print(df["Balance"].count())
+print(df["Balance"].describe())
+
+savings = df[df["Account_Type"] == "Savings"]
+print(savings["Balance"].mean())
+
+###NEW COLUMN: BONUS, ANNUAL INTREST, TOTAL BALANCE AFTER BONUS, ACTIVE, RISK LEVEL
+df["Bonus"] = df["Balance"] * 0.05
+df["Interest"] = df["Balance"] * 0.03
+df["Total"] = df["Balance"] + df["Bonus"]
+df["Status"] = "Active"
+def risk(balance):
+    if balance >= 15000:
+        return "High Value"
+    else:
+        return "Standard"
+    
+print(df.head())
