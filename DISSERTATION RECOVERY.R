@@ -1,10 +1,11 @@
+DISSERTAION RECOVER FROM STATA
 
 install.packages("haven")
 
 library(haven)
 
-install.packages(c("lmtest", "sandwich")) # Run once if not installed
-install.packages(c("pdynmc", "psych")) # Run once to install
+install.packages(c("lmtest", "sandwich")) 
+install.packages(c("pdynmc", "psych"))
 library(plm)
 library(lmtest)
 library(sandwich)
