@@ -10,10 +10,6 @@ library(stargazer)
 ######load the data
 mydata <- read.csv ("regression_auto.csv")
 
-#########Explaining the data
-
-
-
 ######Correlation
 mydata1 <- mydata %>% select(mpg, weight, price, foreign)
 cor(mydata1)
