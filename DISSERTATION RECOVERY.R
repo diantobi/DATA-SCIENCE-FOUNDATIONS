@@ -105,7 +105,7 @@ gmm_pcred1 <- pdynmc(
   # Dependent variable specification
   include.y  = TRUE,
   varname.y  = "GGDP",
-  lagTerms.y = 1,          # Matches L.PCRED
+  lagTerms.y = 1,          
   
   # Explanatory variables (Further Covariates)
   fur.con          = TRUE,
@@ -141,7 +141,7 @@ gmm_pcred2 <- pdynmc(
   # Dependent variable specification
   include.y  = TRUE,
   varname.y  = "UNPR",
-  lagTerms.y = 1,          # Matches L.PCRED
+  lagTerms.y = 1,          
   
   # Explanatory variables (Further Covariates)
   fur.con          = TRUE,
