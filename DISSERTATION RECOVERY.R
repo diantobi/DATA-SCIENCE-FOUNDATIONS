@@ -93,11 +93,11 @@ gmm_pcred <- pdynmc(
   varname.dum = "YEAR"
 )
 
-summary(gmm_pcred1)
+summary(gmm_ggdp)
 
 
 ###GMM ESTIMATION GGDP
-gmm_pcred1 <- pdynmc(
+gmm_ggdp <- pdynmc(
   dat        = disdata,
   varname.i  = "COUNTRYCODE", 
   varname.t  = "YEAR",
@@ -130,10 +130,10 @@ gmm_pcred1 <- pdynmc(
   varname.dum = "YEAR"
 )
 
-summary(gmm_pcred1)
+summary(gmm_ggdp)
 
 ###GMM ESTIMATION UNPR
-gmm_pcred2 <- pdynmc(
+gmm_unpr <- pdynmc(
   dat        = disdata,
   varname.i  = "COUNTRYCODE", 
   varname.t  = "YEAR",
@@ -166,4 +166,4 @@ gmm_pcred2 <- pdynmc(
   varname.dum = "YEAR"
 )
 
-summary(gmm_pcred2)
+summary(gmm_unpr)
